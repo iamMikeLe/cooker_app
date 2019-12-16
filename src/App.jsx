@@ -1,7 +1,9 @@
 import React from 'react';
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { ThemeProvider } from "styled-components";
 import thunk from "redux-thunk";
+import { theme } from 'Theme/mainTheme';
 
 // reducers
 import Album from "Store/reducers/Albums";
@@ -18,7 +20,9 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 function App() {
   return (
     <Provider store={store}>
+      <ThemeProvider theme={theme}>
         <MainRouter />
+      </ThemeProvider>
     </Provider>
   );
 }
