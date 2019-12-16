@@ -4,7 +4,7 @@ import MainTemplate from "Template/mainTemplate/MainTemplate";
 const Homepage = () => {
   return (
       <MainTemplate>
-        homepage
+        homepage content
       </MainTemplate>
   );
 };
