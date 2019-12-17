@@ -1,3 +1,3 @@
 export {
-    getAlbum,
-} from "Store/actions/AlbumActions";
+  setActiveBottomNavigation,
+} from "Store/actions/bottomNavigationActions";
