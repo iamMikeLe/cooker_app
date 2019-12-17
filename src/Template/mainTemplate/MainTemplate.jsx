@@ -24,5 +24,5 @@ const MainTemplate = ({ children }) => {
 export default MainTemplate;
 
 MainTemplate.propTypes = {
-  children: PropTypes.objectOf(PropTypes.any).isRequired,
+  children: PropTypes.arrayOf(PropTypes.any).isRequired,
 };

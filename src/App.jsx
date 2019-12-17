@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import T from "i18n-react";
 import { ThemeProvider } from "styled-components";
 import thunk from "redux-thunk";
 import theme from 'Theme/mainTheme';
@@ -8,6 +9,10 @@ import theme from 'Theme/mainTheme';
 // reducers
 import BottomNavigation from 'Store/reducers/bottomNavigation';
 import MainRouter from 'Router/MainRouter';
+
+
+// set translationFile
+T.setTexts(require("Constants/Translations/en_EN.json"));
 
 // combine reducers
 const rootReducer = combineReducers({

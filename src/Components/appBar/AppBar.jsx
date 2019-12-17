@@ -1,4 +1,5 @@
 import React from 'react';
+import T from "i18n-react";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBarWrapper from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -47,7 +48,7 @@ const AppBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Cooker App
+            {T.translate("appTitle")}
           </Typography>
           {auth && (
             <div>
@@ -75,8 +76,8 @@ const AppBar = () => {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>{T.translate("profile")}</MenuItem>
+                <MenuItem onClick={handleClose}>{T.translate("myAccount")}</MenuItem>
               </Menu>
             </div>
           )}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import T from "i18n-react";
 import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigationWrapper from '@material-ui/core/BottomNavigation';
@@ -47,9 +48,9 @@ const BottomNavigation = ({ setActiveBottomNavigation }) => {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="All" icon={<Fastfood />} />
-      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Add new" icon={<Add />} />
+      <BottomNavigationAction label={T.translate("all")} icon={<Fastfood />} />
+      <BottomNavigationAction label={T.translate("Favorites")} icon={<FavoriteIcon />} />
+      <BottomNavigationAction label={T.translate("addNew")} icon={<Add />} />
     </BottomNavigationWrapper>
   );
 };
