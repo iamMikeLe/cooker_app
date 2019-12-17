@@ -15,18 +15,12 @@ export const setAlbum = (arr) => {
  */
 export const getAlbum = () => {
     return dispatch => {
-        return axios.get("https://jsonplaceholder.typicode.com/photos")
-        .then((response) => {
-            const shortenedResult = response.data.slice(0, 10);
-
-            // Because API call is really fast, loader is not displayed, for displaying purpouses
-            setTimeout(() => {
-                dispatch(setAlbum(shortenedResult));
-            }, 3000);
-            return (shortenedResult);
+        return axios.get("https://yesno.wtf/")
+        .then(() => {
+            console.log("success");
+            dispatch(setAlbum("works"))
         })
         .catch((err) => {
-            // usually I would handle errors differently but because there is no time to implement some snackbar, this will do
             console.log(err);
         });
     };

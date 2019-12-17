@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import 'Theme/reset.css';
+import muiTheme from "Theme/muiTheme";
 import App from './App';
 import registerServiceWorker from './serviceWorkerDev';
-import { muiTheme } from "Theme/muiTheme";
+
 
 import 'typeface-roboto';
 

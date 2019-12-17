@@ -14,9 +14,8 @@ const MainRouter = () => {
         <Route exact path="/homepage" component={Homepage} />
         <Route path="*" component={() => <p>error page</p>} />
       </Switch>
-  </BrowserRouter>
+    </BrowserRouter>
   );
 };
 
 export default MainRouter;
-

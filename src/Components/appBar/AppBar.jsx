@@ -9,7 +9,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -27,11 +27,11 @@ const AppBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setAuth(event.target.checked);
   };
 
-  const handleMenu = event => {
+  const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -84,6 +84,6 @@ const AppBar = () => {
       </AppBarWrapper>
     </div>
   );
-}
+};
 
 export default AppBar;

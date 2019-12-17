@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import BottomNavigation from "Components/bottomNavigation/BottomNavigation";
 import AppBar from "Components/appBar/AppBar";
@@ -13,7 +14,7 @@ const AppWrapper = styled.div`
 const MainTemplate = ({ children }) => {
   return (
     <AppWrapper>
-      <AppBar/>
+      <AppBar />
       {children}
       <BottomNavigation />
     </AppWrapper>
@@ -21,3 +22,7 @@ const MainTemplate = ({ children }) => {
 };
 
 export default MainTemplate;
+
+MainTemplate.propTypes = {
+  children: PropTypes.objectOf(PropTypes.any).isRequired,
+};

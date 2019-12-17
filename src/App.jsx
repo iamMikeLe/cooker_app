@@ -3,15 +3,15 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { ThemeProvider } from "styled-components";
 import thunk from "redux-thunk";
-import { theme } from 'Theme/mainTheme';
+import theme from 'Theme/mainTheme';
 
 // reducers
-import Album from "Store/reducers/Albums";
+import BottomNavigation from 'Store/reducers/bottomNavigation';
 import MainRouter from 'Router/MainRouter';
 
 // combine reducers
 const rootReducer = combineReducers({
-  album: Album,
+  bottomNavigation: BottomNavigation,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
