@@ -1,15 +1,15 @@
 import * as actionTypes from "Store/action-types";
 
 const initialState = {
-  album: null,
+  recipes: null,
 };
 
-const Albums = (state = initialState, action) => {
+const AllRecipes = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_ALBUM:
+    case actionTypes.SET_ALL_RECIPES:
       return {
         ...state,
-        album: action.value,
+        active: action.value,
       };
 
     default:
@@ -17,4 +17,4 @@ const Albums = (state = initialState, action) => {
   }
 };
 
-export default Albums;
+export default AllRecipes;
