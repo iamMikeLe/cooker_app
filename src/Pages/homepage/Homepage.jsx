@@ -4,10 +4,12 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
 
+import AllRecipes from "./allRecipes/AllRecipes";
+
 const Homepage = ({ active }) => {
   return (
     <MainTemplate>
-      {active === ALL_RECIPES && (<p>all recipe page</p>)}
+      {active === ALL_RECIPES && <AllRecipes />}
       {active === FAVORITE_RECIPES && (<p>favorite recipe page</p>)}
       {active === ADD_NEW_RECIPES && (<p>add new recipe page</p>)}
     </MainTemplate>

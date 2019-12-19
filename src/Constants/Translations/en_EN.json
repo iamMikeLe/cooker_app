@@ -1,8 +1,9 @@
 {
     "appTitle": "Cooker App",
     "profile": "Profile",
-    "myAccount": "My account",
+    "logout": "logout",
     "all": "All",
     "favorites": "Favorites",
-    "addNew": "Add new"
+    "addNew": "Add new",
+    "allRecipes": "All Recipes"
 }
