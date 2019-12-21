@@ -9,7 +9,7 @@ const AllRecipes = (state = initialState, action) => {
     case actionTypes.SET_ALL_RECIPES:
       return {
         ...state,
-        active: action.value,
+        recipes: action.value,
       };
 
     default:
