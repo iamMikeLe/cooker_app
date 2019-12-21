@@ -77,7 +77,7 @@ const AppBar = () => {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>{T.translate("profile")}</MenuItem>
-                <MenuItem onClick={handleClose}>{T.translate("myAccount")}</MenuItem>
+                <MenuItem onClick={handleClose}>{T.translate("logout")}</MenuItem>
               </Menu>
             </div>
           )}
