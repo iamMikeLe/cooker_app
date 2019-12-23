@@ -9,7 +9,7 @@ import AllRecipes from "./allRecipes/AllRecipes";
 import cardMock from "./cardDataMock";
 import Favorites from "./favorites/Favorites";
 
-const Homepage = ({ active, recipes, setAllRecipes }) => {
+const Homepage = ({ active, allRecipes, favoriteRecipes, setAllRecipes }) => {
   useEffect(() => {
     setTimeout(() => {
       setAllRecipes(cardMock);
@@ -18,8 +18,8 @@ const Homepage = ({ active, recipes, setAllRecipes }) => {
 
   return (
     <MainTemplate>
-      {active === ALL_RECIPES && <AllRecipes recipes={recipes} />}
-      {active === FAVORITE_RECIPES && <Favorites recipes={recipes} />}
+      {active === ALL_RECIPES && <AllRecipes recipes={allRecipes} />}
+      {active === FAVORITE_RECIPES && <Favorites recipes={favoriteRecipes} />}
       {active === ADD_NEW_RECIPES && (<p>add new recipe page</p>)}
     </MainTemplate>
   );
@@ -27,7 +27,8 @@ const Homepage = ({ active, recipes, setAllRecipes }) => {
 
 const mapStateToProps = (state) => ({
   active: state.bottomNavigation.active,
-  recipes: state.Recipes.recipes,
+  allRecipes: state.Recipes.allRecipes,
+  favoriteRecipes: state.Recipes.favoriteRecipes,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -38,10 +39,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
 
 Homepage.propTypes = {
   active: PropTypes.string.isRequired,
-  recipes: PropTypes.arrayOf(PropTypes.object),
+  allRecipes: PropTypes.arrayOf(PropTypes.object),
+  favoriteRecipes: PropTypes.arrayOf(PropTypes.object),
   setAllRecipes: PropTypes.func.isRequired,
 };
 
 Homepage.defaultProps = {
-  recipes: null,
+  allRecipes: null,
+  favoriteRecipes: null,
 };

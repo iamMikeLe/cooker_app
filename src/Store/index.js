@@ -4,4 +4,6 @@ export {
 
 export {
   setAllRecipes,
+  setFavoriteRecipes,
+  resetRecipes,
 } from "Store/actions/recipesActions";
