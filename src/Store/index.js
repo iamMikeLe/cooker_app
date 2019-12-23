@@ -4,4 +4,4 @@ export {
 
 export {
   setAllRecipes,
-} from "Store/actions/allRecipesActions";
+} from "Store/actions/recipesActions";

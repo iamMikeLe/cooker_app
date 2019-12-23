@@ -27,7 +27,7 @@ const Homepage = ({ active, recipes, setAllRecipes }) => {
 
 const mapStateToProps = (state) => ({
   active: state.bottomNavigation.active,
-  recipes: state.allRecipes.recipes,
+  recipes: state.Recipes.recipes,
 });
 
 const mapDispatchToProps = (dispatch) => ({

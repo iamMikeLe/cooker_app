@@ -4,7 +4,7 @@ const initialState = {
   recipes: null,
 };
 
-const AllRecipes = (state = initialState, action) => {
+const Recipes = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_ALL_RECIPES:
       return {
@@ -17,4 +17,4 @@ const AllRecipes = (state = initialState, action) => {
   }
 };
 
-export default AllRecipes;
+export default Recipes;
