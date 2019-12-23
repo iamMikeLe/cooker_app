@@ -7,6 +7,7 @@ import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/global
 
 import AllRecipes from "./allRecipes/AllRecipes";
 import cardMock from "./cardDataMock";
+import Favorites from "./favorites/Favorites";
 
 const Homepage = ({ active, recipes, setAllRecipes }) => {
   useEffect(() => {
@@ -18,7 +19,7 @@ const Homepage = ({ active, recipes, setAllRecipes }) => {
   return (
     <MainTemplate>
       {active === ALL_RECIPES && <AllRecipes recipes={recipes} />}
-      {active === FAVORITE_RECIPES && (<p>favorite recipe page</p>)}
+      {active === FAVORITE_RECIPES && <Favorites recipes={recipes} />}
       {active === ADD_NEW_RECIPES && (<p>add new recipe page</p>)}
     </MainTemplate>
   );
