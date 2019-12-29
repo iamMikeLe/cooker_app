@@ -8,7 +8,7 @@ import theme from 'Theme/mainTheme';
 
 // reducers
 import BottomNavigation from 'Store/reducers/bottomNavigation';
-import AllRecipes from 'Store/reducers/allRecipes';
+import Recipes from 'Store/reducers/Recipes';
 
 import MainRouter from 'Router/MainRouter';
 
@@ -18,7 +18,7 @@ T.setTexts(require("Constants/Translations/en_EN.json"));
 // combine reducers
 const rootReducer = combineReducers({
   bottomNavigation: BottomNavigation,
-  allRecipes: AllRecipes,
+  Recipes,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

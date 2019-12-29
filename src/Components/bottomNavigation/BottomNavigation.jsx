@@ -19,18 +19,25 @@ const useStyles = makeStyles({
   },
 });
 
-const BottomNavigation = ({ setActiveBottomNavigation }) => {
+const BottomNavigation = (props) => {
+  const { setActiveBottomNavigation, getAllRecipes, setFavoriteRecipes, resetRecipes } = props;
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
   const onChangeHandler = (event, newValue) => {
     setValue(newValue);
+    resetRecipes();
     let selectedTab;
     switch (newValue) {
       case 0:
+        getAllRecipes();
         selectedTab = ALL_RECIPES;
         break;
       case 1:
+        // get favorite data
+        setTimeout(() => {
+          setFavoriteRecipes([]);
+        }, 3000);
         selectedTab = FAVORITE_RECIPES;
         break;
       case 2:
@@ -57,6 +64,9 @@ const BottomNavigation = ({ setActiveBottomNavigation }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   setActiveBottomNavigation: (str) => dispatch(actionCreators.setActiveBottomNavigation(str)),
+  getAllRecipes: () => dispatch(actionCreators.getAllRecipes()),
+  setFavoriteRecipes: (arr) => dispatch(actionCreators.setFavoriteRecipes(arr)),
+  resetRecipes: () => dispatch(actionCreators.resetRecipes()),
 });
 
 
@@ -64,4 +74,7 @@ export default connect(null, mapDispatchToProps)(BottomNavigation);
 
 BottomNavigation.propTypes = {
   setActiveBottomNavigation: PropTypes.func.isRequired,
+  getAllRecipes: PropTypes.func.isRequired,
+  setFavoriteRecipes: PropTypes.func.isRequired,
+  resetRecipes: PropTypes.func.isRequired,
 };

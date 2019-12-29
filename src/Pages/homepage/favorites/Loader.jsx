@@ -17,6 +17,7 @@ const AllRecipesLoader = () => (
       <Card>
         <ContentLoader height={345} width={330} speed={5}>
           <circle cx="20" cy="30" r="20" />
+
           <rect x="55" y="13" rx="4" ry="4" width="100" height="13" />
           <rect x="60" y="37" rx="4" ry="4" width="50" height="8" />
           <rect x="0" y="60" rx="5" ry="5" width="330" height="250" />

@@ -6,19 +6,17 @@ import * as actionCreators from "Store/index";
 import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
 
 import AllRecipes from "./allRecipes/AllRecipes";
-import cardMock from "./cardDataMock";
+import Favorites from "./favorites/Favorites";
 
-const Homepage = ({ active, recipes, setAllRecipes }) => {
+const Homepage = ({ active, allRecipes, favoriteRecipes, getAllRecipes }) => {
   useEffect(() => {
-    setTimeout(() => {
-      setAllRecipes(cardMock);
-    }, 3000);
-  }, [setAllRecipes]);
+      getAllRecipes();
+  }, [getAllRecipes]);
 
   return (
     <MainTemplate>
-      {active === ALL_RECIPES && <AllRecipes recipes={recipes} />}
-      {active === FAVORITE_RECIPES && (<p>favorite recipe page</p>)}
+      {active === ALL_RECIPES && <AllRecipes recipes={allRecipes} />}
+      {active === FAVORITE_RECIPES && <Favorites recipes={favoriteRecipes} />}
       {active === ADD_NEW_RECIPES && (<p>add new recipe page</p>)}
     </MainTemplate>
   );
@@ -26,21 +24,24 @@ const Homepage = ({ active, recipes, setAllRecipes }) => {
 
 const mapStateToProps = (state) => ({
   active: state.bottomNavigation.active,
-  recipes: state.allRecipes.recipes,
+  allRecipes: state.Recipes.allRecipes,
+  favoriteRecipes: state.Recipes.favoriteRecipes,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setAllRecipes: (arr) => dispatch(actionCreators.setAllRecipes(arr)),
+  getAllRecipes: () => dispatch(actionCreators.getAllRecipes()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
 
 Homepage.propTypes = {
   active: PropTypes.string.isRequired,
-  recipes: PropTypes.arrayOf(PropTypes.object),
-  setAllRecipes: PropTypes.func.isRequired,
+  allRecipes: PropTypes.arrayOf(PropTypes.object),
+  favoriteRecipes: PropTypes.arrayOf(PropTypes.object),
+  getAllRecipes: PropTypes.func.isRequired,
 };
 
 Homepage.defaultProps = {
-  recipes: null,
+  allRecipes: null,
+  favoriteRecipes: null,
 };
