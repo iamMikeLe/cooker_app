@@ -10,7 +10,6 @@ import Add from '@material-ui/icons/Add';
 import { connect } from "react-redux";
 import * as actionCreators from "Store/index";
 import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
-import cardMock from 'Pages/homepage/cardDataMock';
 
 const useStyles = makeStyles({
   root: {
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
 });
 
 const BottomNavigation = (props) => {
-  const { setActiveBottomNavigation, setAllRecipes, setFavoriteRecipes, resetRecipes } = props;
+  const { setActiveBottomNavigation, getAllRecipes, setFavoriteRecipes, resetRecipes } = props;
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
@@ -31,10 +30,7 @@ const BottomNavigation = (props) => {
     let selectedTab;
     switch (newValue) {
       case 0:
-        // get all data
-        setTimeout(() => {
-          setAllRecipes(cardMock);
-        }, 3000);
+        getAllRecipes();
         selectedTab = ALL_RECIPES;
         break;
       case 1:
@@ -68,7 +64,7 @@ const BottomNavigation = (props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   setActiveBottomNavigation: (str) => dispatch(actionCreators.setActiveBottomNavigation(str)),
-  setAllRecipes: (arr) => dispatch(actionCreators.setAllRecipes(arr)),
+  getAllRecipes: () => dispatch(actionCreators.getAllRecipes()),
   setFavoriteRecipes: (arr) => dispatch(actionCreators.setFavoriteRecipes(arr)),
   resetRecipes: () => dispatch(actionCreators.resetRecipes()),
 });
@@ -78,7 +74,7 @@ export default connect(null, mapDispatchToProps)(BottomNavigation);
 
 BottomNavigation.propTypes = {
   setActiveBottomNavigation: PropTypes.func.isRequired,
-  setAllRecipes: PropTypes.func.isRequired,
+  getAllRecipes: PropTypes.func.isRequired,
   setFavoriteRecipes: PropTypes.func.isRequired,
   resetRecipes: PropTypes.func.isRequired,
 };

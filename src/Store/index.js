@@ -3,7 +3,7 @@ export {
 } from "Store/actions/bottomNavigationActions";
 
 export {
-  setAllRecipes,
   setFavoriteRecipes,
   resetRecipes,
+  getAllRecipes,
 } from "Store/actions/recipesActions";

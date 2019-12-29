@@ -1,4 +1,7 @@
 import * as actionTypes from "Store/action-types";
+import axios from "axios";
+import cardMock from "Constants/cardDataMock";
+
 
 export const setAllRecipes = (arr) => {
   return {
@@ -17,5 +20,19 @@ export const setFavoriteRecipes = (arr) => {
 export const resetRecipes = () => {
   return {
     type: actionTypes.RESET_RECIPES,
+  };
+};
+
+
+export const getAllRecipes = () => {
+  return (dispatch) => {
+    return axios.get("https://yesno.wtf/")
+      .then(() => {
+        console.log("success");
+        dispatch(setAllRecipes(cardMock));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 };
