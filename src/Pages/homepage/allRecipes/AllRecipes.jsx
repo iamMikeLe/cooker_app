@@ -8,7 +8,7 @@ import AllRecipesLoader from "./Loader";
 
 const AllRecipes = ({ recipes }) => {
   return (
-    <ContainerStyled>
+    <ContainerStyled data-testid="all-recipes">
       <Container>
         <Row>
           <Col xs={12}>
@@ -22,7 +22,7 @@ const AllRecipes = ({ recipes }) => {
           {recipes && recipes.length === 0 && (<p>no card to show</p>)}
           {recipes && (
             recipes.map((item) => (
-              <Col xs={12} md={6} lg={4} key={item.itemId}>
+              <Col xs={12} key={item.itemId}>
                 <RecipeReviewCard
                   cardData={item}
                 />

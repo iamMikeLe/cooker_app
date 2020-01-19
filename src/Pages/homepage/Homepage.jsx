@@ -8,16 +8,16 @@ import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/global
 import AllRecipes from "./allRecipes/AllRecipes";
 import Favorites from "./favorites/Favorites";
 
-const Homepage = ({ active, allRecipes, favoriteRecipes, getAllRecipes }) => {
+export const Homepage = ({ active, allRecipes, favoriteRecipes, getAllRecipes }) => {
   useEffect(() => {
-      getAllRecipes();
+    getAllRecipes();
   }, [getAllRecipes]);
 
   return (
     <MainTemplate>
       {active === ALL_RECIPES && <AllRecipes recipes={allRecipes} />}
-      {active === FAVORITE_RECIPES && <Favorites recipes={favoriteRecipes} />}
-      {active === ADD_NEW_RECIPES && (<p>add new recipe page</p>)}
+      {active === FAVORITE_RECIPES && <Favorites recipes={favoriteRecipes} data-testid="favorite-recipes" />}
+      {active === ADD_NEW_RECIPES && (<p data-testid="add-new-recipes">add new recipe page</p>)}
     </MainTemplate>
   );
 };
