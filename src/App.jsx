@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import T from "i18n-react";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import thunk from "redux-thunk";
 import theme from 'Theme/mainTheme';
 
@@ -24,12 +24,57 @@ const rootReducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
+const MobileWrapper = styled.div`
+    @media only screen and (min-width: 768px) {
+    position: relative;
+    width: 360px;
+    min-height: 640px;
+    height: calc(100vh - 1174px);
+    margin: auto;
+    border: 16px black solid;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 36px;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 5px;
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #333;
+      border-radius: 10px;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      left: 50%;
+      bottom: -65px;
+      transform: translate(-50%, -50%);
+      background: #333;
+      border-radius: 50%;
+    }
+  }
+`;
+
 function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <MainRouter />
-      </ThemeProvider>
+      <MobileWrapper>
+        <ThemeProvider theme={theme}>
+          <MainRouter />
+        </ThemeProvider>
+      </MobileWrapper>
     </Provider>
   );
 }
