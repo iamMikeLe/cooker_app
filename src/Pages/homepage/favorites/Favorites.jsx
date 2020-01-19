@@ -8,7 +8,7 @@ import AllRecipesLoader from "./Loader";
 
 const Favorites = ({ recipes }) => {
   return (
-    <ContainerStyled>
+    <ContainerStyled data-testid="favorite-recipes">
       <Container>
         <Row>
           <Col xs={12}>
