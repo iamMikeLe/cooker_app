@@ -22,7 +22,7 @@ const AllRecipes = ({ recipes }) => {
           {recipes && recipes.length === 0 && (<p data-testid="no-data-text">no card to show</p>)}
           {recipes && (
             recipes.map((item) => (
-              <Col xs={12} key={item.itemId} data-testid="card-item">
+              <Col xs={12} key={item.itemId}>
                 <RecipeReviewCard
                   cardData={item}
                 />

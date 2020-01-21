@@ -4,6 +4,7 @@ exports[`<RecipeReviewCard /> renders correctly with data 1`] = `
 <DocumentFragment>
   <div
     class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1 MuiPaper-rounded"
+    data-testid="card-item"
   >
     <div
       class="MuiCardHeader-root"

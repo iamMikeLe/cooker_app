@@ -41,7 +41,7 @@ const RecipeReviewCard = ({ cardData }) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} data-testid="card-item">
       <CardHeader
         avatar={(
           <Avatar aria-label="recipe" className={classes.avatar}>
