@@ -52,5 +52,17 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns" : [
+      "<rootDir>/src/Router",
+      "<rootDir>/src/Store",
+      "<rootDir>/src/Theme",
+      "<rootDir>/src/Helpers",
+      "<rootDir>/src/Constants",
+      "<rootDir>/src/App.jsx",
+      "<rootDir>/src/index.jsx",
+      "<rootDir>/src/serviceWorker.js"
+    ]
   }
 }
