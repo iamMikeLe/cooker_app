@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import 'Theme/reset.css';
+import muiTheme from "Theme/muiTheme";
 import App from './App';
-import registerServiceWorker from './serviceWorkerDev';
-import { muiTheme } from "Theme/muiTheme";
+import * as serviceWorker from './serviceWorker';
 
 import 'typeface-roboto';
 
@@ -18,5 +17,5 @@ ReactDOM.render((
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
-registerServiceWorker();
+serviceWorker.register();
+
