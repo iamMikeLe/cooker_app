@@ -11,15 +11,21 @@ import { connect } from "react-redux";
 import * as actionCreators from "Store/index";
 import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
 
+
 const useStyles = makeStyles({
   root: {
     width: "100%",
     bottom: "0",
-    position: "absolute",
-  },
+    position: "fixed",
+    "@media (min-width: 768px)": {
+      position: "absolute",
+      bottom: "0",
+      width: "100%"
+    } 
+  }
 });
 
-const BottomNavigation = (props) => {
+const BottomNavigation = props => {
   const { setActiveBottomNavigation, getAllRecipes, setFavoriteRecipes, resetRecipes } = props;
   const classes = useStyles();
   const [value, setValue] = useState(0);

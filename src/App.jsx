@@ -26,10 +26,14 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 const MobileWrapper = styled.div`
     @media only screen and (min-width: 768px) {
-    position: relative;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right:0;
+    bottom: 10px;
     width: 360px;
-    min-height: 640px;
-    height: calc(100vh - 1174px);
+    min-height: 80vh;
+    height: calc(100vh - 674px);
     margin: auto;
     border: 16px black solid;
     border-top-width: 60px;
@@ -38,6 +42,7 @@ const MobileWrapper = styled.div`
     margin-top: 4rem;
     display: flex;
     flex-direction: column;
+ 
 
     &:before {
       content: '';
