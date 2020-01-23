@@ -8,7 +8,7 @@ import AllRecipesLoader from "./Loader";
 
 const Favorites = ({ recipes }) => {
   return (
-    <ContainerStyled>
+    <ContainerStyled data-testid="favorite-recipes">
       <Container>
         <Row>
           <Col xs={12}>
@@ -19,7 +19,7 @@ const Favorites = ({ recipes }) => {
         </Row>
         <CenteredRow>
           {!recipes && (<AllRecipesLoader />)}
-          {recipes && recipes.length === 0 && (<p>no card to show</p>)}
+          {recipes && recipes.length === 0 && (<p data-testid="no-data-text">no card to show</p>)}
           {recipes && (
             recipes.map((item) => (
               <Col xs={12} key={item.itemId}>

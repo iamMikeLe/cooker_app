@@ -13,7 +13,7 @@ export const Card = styled.div`
 
 const AllRecipesLoader = () => (
   [...Array(6)].map((item, index) => (
-    <Col xs={12} key={index}>
+    <Col xs={12} key={index} data-testid="loader">
       <Card>
         <ContentLoader height={345} width={330} speed={5}>
           <circle cx="20" cy="30" r="20" />
