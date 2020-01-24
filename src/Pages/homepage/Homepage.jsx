@@ -3,7 +3,7 @@ import MainTemplate from "Template/mainTemplate/MainTemplate";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as actionCreators from "Store/index";
-import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
+import { ALL_RECIPES, MY_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
 
 import AllRecipes from "./allRecipes/AllRecipes";
 import Favorites from "./favorites/Favorites";
@@ -17,7 +17,7 @@ export const Homepage = ({ active, allRecipes, favoriteRecipes, getAllRecipes })
     <MainTemplate>
       {active === ALL_RECIPES && <AllRecipes recipes={allRecipes} />}
       {active === FAVORITE_RECIPES && <Favorites recipes={favoriteRecipes} data-testid="favorite-recipes" />}
-      {active === ADD_NEW_RECIPES && (<p data-testid="add-new-recipes">add new recipe page</p>)}
+      {active === MY_RECIPES && (<p data-testid="add-new-recipes">add new recipe page</p>)}
     </MainTemplate>
   );
 };
