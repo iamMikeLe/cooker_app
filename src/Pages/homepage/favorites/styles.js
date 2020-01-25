@@ -22,9 +22,7 @@ export const Title = styled(Typography)`
 `;
 
 export const ContainerStyled = styled.div`
-  &&& {
-    width: 100%;
-    height: 85%;
-    overflow: scroll;
-  }
+  width: 100%;
+  height: 85%;
+  overflow: scroll;
 `;
