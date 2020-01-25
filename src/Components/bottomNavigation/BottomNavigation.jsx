@@ -20,13 +20,13 @@ const useStyles = makeStyles({
     "@media (min-width: 768px)": {
       position: "absolute",
       bottom: "0",
-      width: "100%"
-    } 
-  }
+      width: "100%",
+    },
+  },
 });
 
-const BottomNavigation = props => {
-  const { setActiveBottomNavigation, getAllRecipes, setFavoriteRecipes, resetRecipes } = props;
+const BottomNavigation = (props) => {
+  const { setActiveBottomNavigation, getAllRecipes, setFavoriteRecipes, setMyRecipes, resetRecipes } = props;
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
@@ -47,6 +47,9 @@ const BottomNavigation = props => {
         selectedTab = FAVORITE_RECIPES;
         break;
       case 2:
+        setTimeout(() => {
+          setMyRecipes([]);
+        }, 3000);
         selectedTab = MY_RECIPES;
         break;
       default:
@@ -72,6 +75,7 @@ const mapDispatchToProps = (dispatch) => ({
   setActiveBottomNavigation: (str) => dispatch(actionCreators.setActiveBottomNavigation(str)),
   getAllRecipes: () => dispatch(actionCreators.getAllRecipes()),
   setFavoriteRecipes: (arr) => dispatch(actionCreators.setFavoriteRecipes(arr)),
+  setMyRecipes: (arr) => dispatch(actionCreators.setMyRecipes(arr)),
   resetRecipes: () => dispatch(actionCreators.resetRecipes()),
 });
 
@@ -82,5 +86,6 @@ BottomNavigation.propTypes = {
   setActiveBottomNavigation: PropTypes.func.isRequired,
   getAllRecipes: PropTypes.func.isRequired,
   setFavoriteRecipes: PropTypes.func.isRequired,
+  setMyRecipes: PropTypes.func.isRequired,
   resetRecipes: PropTypes.func.isRequired,
 };

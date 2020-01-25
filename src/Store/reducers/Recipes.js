@@ -3,6 +3,7 @@ import * as actionTypes from "Store/action-types";
 const initialState = {
   allRecipes: null,
   favoriteRecipes: null,
+  myRecipes: null,
 };
 
 const Recipes = (state = initialState, action) => {
@@ -19,11 +20,18 @@ const Recipes = (state = initialState, action) => {
         favoriteRecipes: action.value,
       };
 
+    case actionTypes.SET_MY_RECIPES:
+      return {
+        ...state,
+        myRecipes: action.value,
+      };
+
     case actionTypes.RESET_RECIPES:
       return {
         ...state,
         allRecipes: null,
         favoriteRecipes: null,
+        myRecipes: null,
       };
     default:
       return state;
