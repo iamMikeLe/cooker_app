@@ -11,7 +11,7 @@ export const Card = styled.div`
   }
 `;
 
-const AllRecipesLoader = () => (
+const CardLoader = () => (
   [...Array(6)].map((item, index) => (
     <Col xs={12} key={index} data-testid="loader">
       <Card>
@@ -27,4 +27,4 @@ const AllRecipesLoader = () => (
   ))
 );
 
-export default AllRecipesLoader;
+export default CardLoader;

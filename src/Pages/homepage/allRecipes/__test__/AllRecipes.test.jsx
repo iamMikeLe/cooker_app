@@ -10,12 +10,12 @@ describe("<AllRecipes />", () => {
     expect(getAllByTestId("loader"));
   });
 
-  it("renders loader when recipe is null", () => {
+  it("renders no data info component", () => {
     const { getByTestId } = render(<AllRecipes recipes={[]} />);
     expect(getByTestId("no-data-text"));
   });
 
-  it("renders loader when recipe is null", () => {
+  it("renders recipe Cards when recipes exists", () => {
     const recipesStub = [
       {
         itemId: 1,

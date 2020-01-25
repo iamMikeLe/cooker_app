@@ -3,8 +3,8 @@ import T from "i18n-react";
 import PropTypes from "prop-types";
 import RecipeReviewCard from "Components/recipeCard/recipeCard";
 import { Container, Row, Col } from 'react-grid-system';
+import CardLoader from "Components/loaders/cardLoader/CardLoader";
 import { CenteredRow, Title, ContainerStyled } from "./styles";
-import AllRecipesLoader from "./Loader";
 
 const AllRecipes = ({ recipes }) => {
   return (
@@ -18,7 +18,7 @@ const AllRecipes = ({ recipes }) => {
           </Col>
         </Row>
         <CenteredRow>
-          {!recipes && (<AllRecipesLoader />)}
+          {!recipes && (<CardLoader />)}
           {recipes && recipes.length === 0 && (<p data-testid="no-data-text">no card to show</p>)}
           {recipes && (
             recipes.map((item) => (
