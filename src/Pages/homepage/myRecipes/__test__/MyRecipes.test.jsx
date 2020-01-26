@@ -1,17 +1,17 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Favorites from '../Favorites';
+import MyRecipes from '../MyRecipes';
 
 
-describe("<Favorites />", () => {
+describe("<MyRecipes />", () => {
   it("renders loader when recipe is null", () => {
-    const { getAllByTestId } = render(<Favorites />);
+    const { getAllByTestId } = render(<MyRecipes />);
     expect(getAllByTestId("loader"));
   });
 
   it("renders no data info component", () => {
-    const { getByTestId } = render(<Favorites recipes={[]} />);
+    const { getByTestId } = render(<MyRecipes recipes={[]} />);
     expect(getByTestId("no-data-text"));
   });
 
@@ -25,7 +25,7 @@ describe("<Favorites />", () => {
         imgUrl: "stub url",
       },
     ];
-    const { getAllByTestId } = render(<Favorites recipes={recipesStub} />);
+    const { getAllByTestId } = render(<MyRecipes recipes={recipesStub} />);
     expect(getAllByTestId("card-item"));
   });
 });

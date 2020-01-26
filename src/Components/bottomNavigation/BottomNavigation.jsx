@@ -6,10 +6,10 @@ import BottomNavigationWrapper from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Fastfood from '@material-ui/icons/Fastfood';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import Add from '@material-ui/icons/Add';
+import Person from '@material-ui/icons/Person';
 import { connect } from "react-redux";
 import * as actionCreators from "Store/index";
-import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
+import { ALL_RECIPES, MY_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
 
 
 const useStyles = makeStyles({
@@ -20,13 +20,13 @@ const useStyles = makeStyles({
     "@media (min-width: 768px)": {
       position: "absolute",
       bottom: "0",
-      width: "100%"
-    } 
-  }
+      width: "100%",
+    },
+  },
 });
 
-const BottomNavigation = props => {
-  const { setActiveBottomNavigation, getAllRecipes, setFavoriteRecipes, resetRecipes } = props;
+const BottomNavigation = (props) => {
+  const { setActiveBottomNavigation, getAllRecipes, setFavoriteRecipes, setMyRecipes, resetRecipes } = props;
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
@@ -47,7 +47,10 @@ const BottomNavigation = props => {
         selectedTab = FAVORITE_RECIPES;
         break;
       case 2:
-        selectedTab = ADD_NEW_RECIPES;
+        setTimeout(() => {
+          setMyRecipes([]);
+        }, 3000);
+        selectedTab = MY_RECIPES;
         break;
       default:
     }
@@ -63,7 +66,7 @@ const BottomNavigation = props => {
     >
       <BottomNavigationAction label={T.translate("all")} icon={<Fastfood />} />
       <BottomNavigationAction label={T.translate("Favorites")} icon={<FavoriteIcon />} />
-      <BottomNavigationAction label={T.translate("addNew")} icon={<Add />} />
+      <BottomNavigationAction label={T.translate("myRecipes")} icon={<Person />} />
     </BottomNavigationWrapper>
   );
 };
@@ -72,6 +75,7 @@ const mapDispatchToProps = (dispatch) => ({
   setActiveBottomNavigation: (str) => dispatch(actionCreators.setActiveBottomNavigation(str)),
   getAllRecipes: () => dispatch(actionCreators.getAllRecipes()),
   setFavoriteRecipes: (arr) => dispatch(actionCreators.setFavoriteRecipes(arr)),
+  setMyRecipes: (arr) => dispatch(actionCreators.setMyRecipes(arr)),
   resetRecipes: () => dispatch(actionCreators.resetRecipes()),
 });
 
@@ -82,5 +86,6 @@ BottomNavigation.propTypes = {
   setActiveBottomNavigation: PropTypes.func.isRequired,
   getAllRecipes: PropTypes.func.isRequired,
   setFavoriteRecipes: PropTypes.func.isRequired,
+  setMyRecipes: PropTypes.func.isRequired,
   resetRecipes: PropTypes.func.isRequired,
 };

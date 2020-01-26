@@ -50,6 +50,7 @@
         "quotes": 0,
         "object-curly-newline": 0,
         "arrow-body-style": 0,
-        "import/prefer-default-export": 0
+        "import/prefer-default-export": 0,
+        "import/no-named-as-default": 0
     }
 }

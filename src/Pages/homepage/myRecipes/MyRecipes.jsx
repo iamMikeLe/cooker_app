@@ -5,17 +5,17 @@ import RecipeReviewCard from "Components/recipeCard/recipeCard";
 import { Container, Row, Col } from 'react-grid-system';
 import CardLoader from "Components/loaders/cardLoader/CardLoader";
 import NoRecipes from "Components/placeholders/noRecipes/NoRecipes";
-
 import { CenteredRow, Title, ContainerStyled } from "./styles";
 
-const AllRecipes = ({ recipes }) => {
+
+const MyRecipes = ({ recipes }) => {
   return (
-    <ContainerStyled data-testid="all-recipes">
+    <ContainerStyled data-testid="my-recipes">
       <Container>
         <Row>
           <Col xs={12}>
             <Title variant="h4" gutterBottom>
-              {T.translate("allRecipes")}
+              {T.translate("myRecipes")}
             </Title>
           </Col>
         </Row>
@@ -37,12 +37,12 @@ const AllRecipes = ({ recipes }) => {
   );
 };
 
-export default AllRecipes;
+export default MyRecipes;
 
-AllRecipes.propTypes = {
+MyRecipes.propTypes = {
   recipes: PropTypes.arrayOf(PropTypes.object),
 };
 
-AllRecipes.defaultProps = {
+MyRecipes.defaultProps = {
   recipes: null,
 };

@@ -26,6 +26,5 @@ export const ContainerStyled = styled.div`
     width: 100%;
     height: 85%;
     overflow: scroll;
-    margin-bottom: 50px;
   }
 `;

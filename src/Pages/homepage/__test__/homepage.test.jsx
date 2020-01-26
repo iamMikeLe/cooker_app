@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderWithRedux } from 'Helpers/testHelper';
 
-import { ALL_RECIPES, ADD_NEW_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
+import { ALL_RECIPES, MY_RECIPES, FAVORITE_RECIPES } from 'Constants/globalConstants';
 
 import { Homepage } from '../Homepage';
 
@@ -31,14 +31,14 @@ describe("<Homepage />", () => {
     expect(getByTestId("favorite-recipes"));
   });
 
-  it("renders add new recipes when addNewRecipes is active", () => {
+  it("renders my recipes when addNewRecipes is active", () => {
     const component = (
       <Homepage
-        active={ADD_NEW_RECIPES}
+        active={MY_RECIPES}
         getAllRecipes={getAllRecipes}
       />
     );
     const { getByTestId } = renderWithRedux(component);
-    expect(getByTestId("add-new-recipes"));
+    expect(getByTestId("my-recipes"));
   });
 });

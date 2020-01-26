@@ -3,8 +3,11 @@ import T from "i18n-react";
 import PropTypes from "prop-types";
 import RecipeReviewCard from "Components/recipeCard/recipeCard";
 import { Container, Row, Col } from 'react-grid-system';
+import CardLoader from "Components/loaders/cardLoader/CardLoader";
+import NoRecipes from "Components/placeholders/noRecipes/NoRecipes";
+
 import { CenteredRow, Title, ContainerStyled } from "./styles";
-import AllRecipesLoader from "./Loader";
+
 
 const Favorites = ({ recipes }) => {
   return (
@@ -13,13 +16,13 @@ const Favorites = ({ recipes }) => {
         <Row>
           <Col xs={12}>
             <Title variant="h4" gutterBottom>
-              {T.translate("allRecipes")}
+              {T.translate("favorites")}
             </Title>
           </Col>
         </Row>
         <CenteredRow>
-          {!recipes && (<AllRecipesLoader />)}
-          {recipes && recipes.length === 0 && (<p data-testid="no-data-text">no card to show</p>)}
+          {!recipes && (<CardLoader />)}
+          {recipes && recipes.length === 0 && <NoRecipes />}
           {recipes && (
             recipes.map((item) => (
               <Col xs={12} key={item.itemId}>

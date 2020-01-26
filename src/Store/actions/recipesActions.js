@@ -17,6 +17,13 @@ export const setFavoriteRecipes = (arr) => {
   };
 };
 
+export const setMyRecipes = (arr) => {
+  return {
+    type: actionTypes.SET_MY_RECIPES,
+    value: arr,
+  };
+};
+
 export const resetRecipes = () => {
   return {
     type: actionTypes.RESET_RECIPES,
