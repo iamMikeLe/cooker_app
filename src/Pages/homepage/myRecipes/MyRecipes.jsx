@@ -1,27 +1,14 @@
 import React from "react";
 import T from "i18n-react";
-import styled from "styled-components";
 import PropTypes from "prop-types";
-import Fab from '@material-ui/core/Fab';
+import Zoom from '@material-ui/core/Zoom';
 import AddIcon from '@material-ui/icons/Add';
 import RecipeReviewCard from "Components/recipeCard/recipeCard";
 import { Container, Row, Col } from 'react-grid-system';
 import CardLoader from "Components/loaders/cardLoader/CardLoader";
 import NoRecipes from "Components/placeholders/noRecipes/NoRecipes";
-import { CenteredRow, Title, ContainerStyled } from "./styles";
+import { CenteredRow, Title, ContainerStyled, StyledFab } from "./styles";
 
-
-export const StyledFab = styled(Fab)`
-  &&& {
-    position: fixed;
-    bottom: 85px;
-    right: 30px;
-    cursor: pointer;
-    @media only screen and (min-width: 768px) {
-      position: absolute;
-    }
-  }
-`;
 
 const MyRecipes = ({ recipes }) => {
   return (
@@ -48,9 +35,17 @@ const MyRecipes = ({ recipes }) => {
           )}
         </CenteredRow>
       </Container>
-      <StyledFab color="secondary" aria-label="add">
-        <AddIcon />
-      </StyledFab>
+      {recipes && (
+        <Zoom
+          in={!!recipes}
+          style={{ transitionDelay: "100ms" }}
+          unmountOnExit
+        >
+          <StyledFab color="secondary" aria-label="add">
+            <AddIcon />
+          </StyledFab>
+        </Zoom>
+      )}
     </ContainerStyled>
   );
 };
