@@ -41,7 +41,7 @@ const AllRecipes = ({ recipes }) => {
           style={{ transitionDelay: "100ms" }}
           unmountOnExit
         >
-          <StyledFab color="secondary" aria-label="add">
+          <StyledFab color="secondary" aria-label="search">
             <Search />
           </StyledFab>
         </Zoom>

@@ -9,7 +9,6 @@ import CardLoader from "Components/loaders/cardLoader/CardLoader";
 import NoRecipes from "Components/placeholders/noRecipes/NoRecipes";
 import { CenteredRow, Title, ContainerStyled, StyledFab } from "./styles";
 
-
 const MyRecipes = ({ recipes }) => {
   return (
     <ContainerStyled data-testid="my-recipes">

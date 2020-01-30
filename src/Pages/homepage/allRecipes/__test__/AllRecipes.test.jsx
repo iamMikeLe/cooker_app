@@ -1,8 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 
 import AllRecipes from '../AllRecipes';
 
+afterEach(cleanup);
 
 describe("<AllRecipes />", () => {
   it("renders loader when recipe is null", () => {
@@ -10,12 +11,13 @@ describe("<AllRecipes />", () => {
     expect(getAllByTestId("loader"));
   });
 
-  it("renders no data info component", () => {
-    const { getByTestId } = render(<AllRecipes recipes={[]} />);
+  it("renders no data info component with search icon", () => {
+    const { getByTestId, getByLabelText } = render(<AllRecipes recipes={[]} />);
     expect(getByTestId("no-data-text"));
+    expect(getByLabelText("search"));
   });
 
-  it("renders recipe Cards when recipes exists", () => {
+  it("renders recipe Cards when recipes exists with search icon", () => {
     const recipesStub = [
       {
         itemId: 1,
@@ -25,7 +27,8 @@ describe("<AllRecipes />", () => {
         imgUrl: "stub url",
       },
     ];
-    const { getAllByTestId } = render(<AllRecipes recipes={recipesStub} />);
+    const { getAllByTestId, getByLabelText } = render(<AllRecipes recipes={recipesStub} />);
     expect(getAllByTestId("card-item"));
+    expect(getByLabelText("search"));
   });
 });
