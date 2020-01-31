@@ -1,8 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 
 import Favorites from '../Favorites';
 
+afterEach(cleanup);
 
 describe("<Favorites />", () => {
   it("renders loader when recipe is null", () => {
@@ -10,12 +11,13 @@ describe("<Favorites />", () => {
     expect(getAllByTestId("loader"));
   });
 
-  it("renders no data info component", () => {
-    const { getByTestId } = render(<Favorites recipes={[]} />);
+  it("renders no data info component with search icon", () => {
+    const { getByTestId, getByLabelText } = render(<Favorites recipes={[]} />);
     expect(getByTestId("no-data-text"));
+    expect(getByLabelText("search"));
   });
 
-  it("renders recipe Cards when recipes exists", () => {
+  it("renders recipe Cards when recipes exists with search icon", () => {
     const recipesStub = [
       {
         itemId: 1,
@@ -25,7 +27,8 @@ describe("<Favorites />", () => {
         imgUrl: "stub url",
       },
     ];
-    const { getAllByTestId } = render(<Favorites recipes={recipesStub} />);
+    const { getAllByTestId, getByLabelText } = render(<Favorites recipes={recipesStub} />);
     expect(getAllByTestId("card-item"));
+    expect(getByLabelText("search"));
   });
 });
